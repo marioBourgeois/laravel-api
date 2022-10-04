@@ -14,6 +14,10 @@ class Topicality extends JsonResource
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        return [
+            'title' => 'Titre de mon actualité: '. $this -> title,
+            'content' => substr($this -> content, 0, 20) . '...'
+
+        ];
     }
 }
