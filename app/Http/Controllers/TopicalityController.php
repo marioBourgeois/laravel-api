@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Topicality;
-use App\Htp\Resources\Topicality as ResourcesTopicality;
+use App\Http\Resources\Topicality as ResourcesTopicality;
 use Illuminate\Http\Request;
 
 
@@ -17,7 +17,7 @@ class TopicalityController extends Controller
     public function index()
     {
        
-        return Topicality::orderByDesc('created_at')->get();
+        return ResourcesTopicality::collection(Topicality::orderByDesc('created_at')->get());
     }
 
     /**
